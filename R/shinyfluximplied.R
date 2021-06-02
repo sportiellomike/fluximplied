@@ -1,9 +1,9 @@
 #' Interactive shiny
-#' 
+#'
 #' @description Use this function shinyfluximplied() to launch the interactive
 #'
-#' @param ui 
-#' @param server 
+#' @param ui
+#' @param server
 #'
 #' @return
 #' @export
@@ -16,18 +16,18 @@ if (interactive()) {
 ui <- fluidPage(theme = shinytheme("slate"),
     # Application title
     titlePanel("fluximplied"),
-    
-    # Sidebar with a slider input for number of bins 
+
+    # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
             fileInput("file1", "Choose CSV File", accept = ".csv"),
-          selectInput("species", "species", 
+          selectInput("species", "species",
                                  c('Mouse'='Mmu',
                                    'Human'='Hsa')),
             selectInput('geneformat','Gene format',
                                     c('Symbol','ENTREZID')),
             selectInput('inputformat','Input format',
-                                     c('Dataframe','Vector')),
+                                     c('Dataframe')),
             selectInput("padjcolname", "Column with adjusted p values",''),
             numericInput("pcutoff", "Significance cutoff (alpha)", 0.05, min = 0, max = 1),
             downloadButton("downloadData", "Download output table"),
@@ -48,10 +48,10 @@ ui <- fluidPage(theme = shinytheme("slate"),
 )
 server = function(input, output, session) {
 #create reactive to be able to pull column names from uploaded CSV
-  data <- reactive({ 
+  data <- reactive({
     req(input$file1) ## ?req #  require that the input is available
-    
-    inFile <- input$file1 
+
+    inFile <- input$file1
     df <- read.csv(inFile$datapath, header = T,row.names = c(1))
     updateSelectInput(session, inputId = 'padjcolname', label = 'Column to use for P value adjustment',choices = colnames(df))
     return(df)
@@ -100,7 +100,7 @@ tabledownload <- reactive({
 })
 
 output$tabledownload <- renderTable({
- 
+
   tabledownload()
 })
 
@@ -112,7 +112,7 @@ output$downloadData  <- downloadHandler(
     write.csv(tabledownload(), file, row.names = T)
   }
 )
- 
+
 }}
 #run shiny app
 shinyApp(ui = ui, server = server)
