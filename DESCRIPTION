@@ -1,0 +1,23 @@
+Package: fluximplied
+Type: Package
+Title: Pathway analysis software utilizing rate limiting steps
+Version: 0.1.0
+Author: Authors@R: c(
+    person("Mike", "Sportiello", email = "michael_sportiello@urmc.rochester.edu",role = c("aut", "cre"))
+    person("Rohith", "Palli", email = "rohith_palli@urmc.rochester.edu", role = "aut")
+    person("Adam", "Geber", email = "adam_geber@urmc.rochester.edu", role = "aut"))
+Maintainer: The package maintainer <michael_sportiello@urmc.rochester.edu>
+Description: Fluximplied utilizes a manually curated rate limiting step database to 
+    analyze DESeq2 results or a character vector of differentially expressed genes
+License: CC BY-NC-SA 
+Encoding: UTF-8
+LazyData: true
+Depends:
+    R(>= 3.1)
+Imports:
+    viridis,
+    ggplot2,
+    shinythemes,
+    Cairo,
+    shiny,
+    pathview
