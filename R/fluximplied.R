@@ -1,5 +1,3 @@
-
-
 #' flux implied
 #'
 #' @description Pathway analysis of DESeq2 result or character vector of differentially expressed genes which also plots results.

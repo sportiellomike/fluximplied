@@ -1,5 +1,7 @@
 #' saveData
 #'
+#' @description used in shiny app
+#'
 #' @param data
 #'
 #' @return

@@ -1,5 +1,7 @@
 #' loadData
 #'
+#'@description used in shiny app
+#'
 #' @return
 #' @export
 #'
