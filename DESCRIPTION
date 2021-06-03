@@ -15,8 +15,9 @@ LazyData: true
 Depends:
     R(>= 3.1)
 Imports:
+    shiny,
     viridis,
     ggplot2,
     shinythemes,
-    Cairo,
-    shiny
+    Cairo
+    

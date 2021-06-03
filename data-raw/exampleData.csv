@@ -1,4 +1,4 @@
-,pvalue,weighted_pvalue,log2FoldChange
+,pvalue,padj,log2FoldChange
 Idh2,2.20E-24,2.10E-24,-1.633791896
 Ggt1,2.42E-24,2.22E-24,-2.520352902
 Ndfip1,3.83E-24,3.32E-24,0.98914257
