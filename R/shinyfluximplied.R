@@ -13,8 +13,9 @@ shinyfluximplied=function(ui = ui, server= server){
 #build shiny app
 if (interactive()) {
 # Define UI for application that draws a histogram
-library(shinythemes)
-  ui <- shiny::fluidPage(theme = shinytheme("slate"),
+library(shiny)
+  library(shinythemes)
+  ui <- fluidPage(theme = shinytheme("slate"),
     # Application title
     titlePanel("fluximplied"),
 
