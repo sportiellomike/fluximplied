@@ -7,10 +7,12 @@
 shinyfluximplied(ui = ui, server = server)
 }
 \arguments{
-\item{server}{}
+\item{ui}{This shiny app only works as we defined it, changes to either ui or server are not allowed.}
+
+\item{server}{This shiny app only works as we defined it, changes to either ui or server are not allowed.}
 }
 \value{
-
+A shiny app will be launched.
 }
 \description{
 Use this function shinyfluximplied() to launch the interactive
