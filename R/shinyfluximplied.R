@@ -33,7 +33,7 @@ library(shiny)
             selectInput("padjcolname", "Column with adjusted p values",''),
             numericInput("pcutoff", "Significance cutoff (alpha)", 0.05, min = 0, max = 1),
             downloadButton("downloadData", "Download output table"),
-          h3('This interactive supports dataframe inputs to fluximplied only. Once you upload your CSV, it should automatically run!')
+          h1('This interactive supports dataframe inputs to fluximplied only.')
         ),
 
 #create the main panel plotting and printing outputs
