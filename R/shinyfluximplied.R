@@ -2,10 +2,10 @@
 #'
 #' @description Use this function shinyfluximplied() to launch the interactive
 #'
-#' @param ui
-#' @param server
+#' @param ui This shiny app only works as we defined it, changes to either ui or server are not allowed.
+#' @param server This shiny app only works as we defined it, changes to either ui or server are not allowed.
 #'
-#' @return
+#' @return A shiny app will be launched.
 #' @export
 #'
 #' @examples
