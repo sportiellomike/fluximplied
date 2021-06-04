@@ -7,7 +7,9 @@
 specform(species, geneformat)
 }
 \arguments{
-\item{geneformat}{}
+\item{species}{either mus or hsa for mouse or human to make sure the species is defined}
+
+\item{geneformat}{either entrez or symbol to make sure the rate limiting step database understands what the format of your genes are in}
 }
 \value{
 
