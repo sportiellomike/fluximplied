@@ -10,7 +10,7 @@
 #'
 #' @examples specform(species='mmu',geneformat='symbol')
 specform <- function(species,geneformat) {
-  RLSdatabase<<-read.csv('https://raw.githubusercontent.com/sportiellomike/fluximplied/master/RLSdatabase.csv',stringsAsFactors = F,colClasses = c(kegg.pathway.id='character'))
+  RLSdatabase<<-read.csv('https://raw.githubusercontent.com/sportiellomike/fluximplieddev/master/RLSdatabase.csv',stringsAsFactors = F,colClasses = c(kegg.pathway.id='character'))
   ifelse(species=='Mmu' || species=='MMU' || species=='mmu',
          ifelse(geneformat=='Symbol'||geneformat=='SYMBOL'||geneformat=='symbol', RLSgenes<-RLSdatabase$mouse.gene.symbol,
                 ifelse(geneformat== 'Entrezid'||geneformat=='ENTREZ'||geneformat=='Entrez'||geneformat=='entrez'||geneformat=='entrezid'||geneformat=='ENTREZID',
