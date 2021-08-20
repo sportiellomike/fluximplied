@@ -14,7 +14,7 @@ But here's the problem: what if instead of looking at the whole gene set, we jus
 I think most of us would agree that higher levels of the enzyme that is the rate limiting step, the step that controls how much glycolysis is actually going to happen, is meaningful! Imagine a carrot cake assembly line with jobs that all take one minute to do, except for one person in the middle (they're the ones doing the time-consuming job of actually baking the cake), whose job takes 1 hour. Increasing the people around that one person probably wouldn't do much, but increasing the number of people/ovens that do that one rate limiting step would likely greatly increase the speed of the carrot cake assembly line as a whole! And more to the point, it would _increase the flux_ of carrot cakes through the assembly line. The same can be said for many metabolic reactions. The upregulation of Phosphofructokinase 1 _implies_ increased flux through glycolysis, just as an extra worker for the rate limiting step on the assembly line would imply increased flux through the assembly line.
 # The solution
 Here, we present the function fluximplied (as well as the functions it depends on). Fluximplied needs a list of genes or a dataframe result from differential expression analysis, the species that the genes are from (it currently accepts only mouse and human), as well as how those genes are encoded (as official gene symbols or official ENTREZIDs). We have created a publicly accessible database of rate limiting steps and the gene that encodes them. The function compares your supplied gene list with this database and looks for overlaps, and then returns those overlaps to help you generate hypotheses and followup analyses with flux balance analysis or other functional assays. 
-# How to use and install
+# How to install
 
 **Mac and PC**
 
@@ -40,6 +40,7 @@ Linux requires certain dependencies installed on your actual machine (not just o
 
 Navigate to the functions at https://github.com/sportiellomike/fluximplied/tree/master/R, and download them and run those scripts. We offer all this code for free and in open source, and only ask you cite us in return so other people can learn about this and help contribute.
 
+# How to use
 **The function is formatted as follows:**
 
 `fluximplied(inputdat,species='Mmu',geneformat='Symbol',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)`
