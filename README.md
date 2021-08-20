@@ -15,7 +15,9 @@ I think most of us would agree that higher levels of the enzyme that is the rate
 # The solution
 Here, we present the function fluximplied (as well as the functions it depends on). Fluximplied needs a list of genes or a dataframe result from differential expression analysis, the species that the genes are from (it currently accepts only mouse and human), as well as how those genes are encoded (as official gene symbols or official ENTREZIDs). We have created a publicly accessible database of rate limiting steps and the gene that encodes them. The function compares your supplied gene list with this database and looks for overlaps, and then returns those overlaps to help you generate hypotheses and followup analyses with flux balance analysis or other functional assays. 
 # How to use and install
-*Mac and PC*
+
+**Mac and PC**
+
 You can use an interactive graphic user interface (GUI) which allows you to upload your CSV (which you can make by exporting from excel), and returns a table of rate limiting steps, a bar graph of your results, and text explaining the meaning of your results. You can access that GUI here:
 
 Or, for those with more experience using R, simply install the package (ensure you have an internet connection):
@@ -25,14 +27,16 @@ Or, for those with more experience using R, simply install the package (ensure y
 `install_github('sportiellomike/fluximplied')`
 `library(fluximplied)`
 
-*Linux*
+**Linux**
+
 Info: Root access is required; Ubuntu version: 20.04 LTS (amd64), XFCE4 Desktop Environment; R version tested on ubuntu: v3.6.3
 
 Linux requires certain dependencies installed on your actual machine (not just other R packages). We made this easy on you by supplying a bash script. The bash script is found here called "install_for_ubuntu-fluximplied.sh". To run it, download it from https://github.com/sportiellomike/fluximplieddev and run it by typing the following into the terminal while being in the correct directory:
 
 `bash install_for_ubuntu-fluximplied.sh`
 
-*If those installs are not working*
+**If those installs are not working**
+
 Navigate to the functions at https://github.com/sportiellomike/fluximplied/tree/master/R, and download them and run those scripts. We offer all this code for free and in open source, and only ask you cite us in return so other people can learn about this and help contribute.
 
 The function is formatted as follows:
