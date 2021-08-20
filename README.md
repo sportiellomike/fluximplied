@@ -40,7 +40,7 @@ Linux requires certain dependencies installed on your actual machine (not just o
 
 Navigate to the functions at https://github.com/sportiellomike/fluximplied/tree/master/R, and download them and run those scripts. We offer all this code for free and in open source, and only ask you cite us in return so other people can learn about this and help contribute.
 
-The function is formatted as follows:
+**The function is formatted as follows:**
 
 `fluximplied(inputdat,species='Mmu',geneformat='Symbol',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)`
 * inputdat may be either a dataframe or a vector of characters. 
