@@ -18,7 +18,7 @@ Here, we present the function fluximplied (as well as the functions it depends o
 
 **Mac and PC**
 
-You can use an interactive graphic user interface (GUI) which allows you to upload your CSV (which you can make by exporting from excel), and returns a table of rate limiting steps, a bar graph of your results, and text explaining the meaning of your results. You can access that GUI here:
+You can use an interactive graphic user interface (GUI) which allows you to upload your CSV (which you can make by exporting from excel), and returns a table of rate limiting steps, a bar graph of your results, and text explaining the meaning of your results. You can access that GUI here: https://sportiellomike.shinyapps.io/fluximplied/
 
 Or, for those with more experience using R, simply install the package (ensure you have an internet connection):
 
