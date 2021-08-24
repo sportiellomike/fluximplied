@@ -1,21 +1,21 @@
 # fluximplied
-These R functions assist in the generation of hypotheses for flux analysis from transciptomic or metabalomic data. Install instructions and how to use these functions are below.
+These R functions assist in the generation of hypotheses for flux analysis from transciptomic or metabalomic data. Instructions for installation and use of those functions are detailed below.
 # Authors, contributors, and more
-* Mike Sportiello MS, Rohith Palli PhD, Adam Geber, Nate Laniewski, Aizan Embong MS, Emma C Reilly PhD, Kris Lambert Emo, and Dave Topham PhD
+* Mike Sportiello MS, Adam Geber, Rohith Palli PhD, Aizan Embong MS, Nate Laniewski, Emma C Reilly PhD, Kris Lambert Emo, and Dave Topham PhD
 * This tool was created by students and employees at the University of Rochester Medical Center. We acknowledge and are grateful for the public institutions that support this work as it would have been impossible without them, including the National Institute of Health, our public education system, and more.
 * You can contact us at Michael_Sportiello@urmc.rochester.edu.
 * We would appreciate you citing us. An acceptable citation follows: Sportiello M et alia, fluximplied: a hypothesis generating tool for flux analysis using a rate limiting step database. 2021. https://github.com/sportiellomike/fluximplied.
 
 # The problem
-Differential expression analysis is increasingly commonplace. For us T cell immunologists, we might look at the number of genes that are upregulated in activated T cells compared to non-activated T cells and find that many of those in our list of upregulated genes have to do with killing target cells (an essential role of T cells). We might see that, after performing a statistical test using methods such as [enrichr](https://maayanlab.cloud/Enrichr/), that genes associated with cell killing are enriched in our upregulated gene set. 
+Differential expression analysis is increasingly commonplace. For us T cell immunologists, we might look at the number of genes that are upregulated in activated T cells compared to their non-activated counterparts and find that many in our list of upregulated genes have to do with killing target cells (an essential and well established role of CD8 T cells). We might see that, after performing a statistical test using methods such as [enrichr](https://maayanlab.cloud/Enrichr/), that genes associated with cell killing are enriched in the upregulated gene set. 
 
-But here's the problem: what if instead of looking at the whole gene set, we just wanted to look at metabolic pathways and get a sense of which metabolic pathways are upregulated? Let's take glycolysis as an example: if all of the genes of glycolysis are upregulated in activated T cells as compared to non-activated T cells, we would  find this to be an upregulated pathway in activated T cells. But, what if only one gene was upregulated? Likely, the p value of the enrichment analysis would be non-significant and appropriately well over 0.05. This might sound good, but what if I told you that one gene was the transcript for the enzyme Phosphofructokinase 1, the _rate limiting step_ of glycolysis!
+But here's the problem: what if instead of looking at the whole gene set, we just wanted to look at metabolic pathways and get a sense of which metabolic pathways are upregulated? Let's take glycolysis as an example: if all of the genes of glycolysis are upregulated in activated T cells as compared with non-activated T cells, we would  find this to be an upregulated pathway in activated T cells. But, what if only one gene was upregulated? Likely, the p value of the enrichment analysis would be non-significant and appropriately well over 0.05. This might sound good, but what if I told you that one gene was the transcript for the enzyme Phosphofructokinase 1, the _rate limiting step_ of glycolysis? Non-biased gene set enrichment analyses don't factor in flux at all, nor do they take into special consideration the rate limiting steps of these metabolic reactions eithre.
 
 I think most of us would agree that higher levels of the enzyme that is the rate limiting step, the step that controls how much glycolysis is actually going to happen, is meaningful. Imagine a carrot cake assembly line with jobs that all take one minute to do, except for one person in the middle (they're the ones doing the time-consuming job of actually baking the cake), whose job takes 1 hour. Increasing the people around that one person probably wouldn't do much, but increasing the number of people/ovens that do that one rate limiting step would likely greatly increase the speed of the carrot cake assembly line as a whole. And more to the point, it would _increase the flux_ of carrot cakes through the assembly line. The same can be said for many metabolic reactions. The upregulation of Phosphofructokinase 1 _implies_ increased flux through glycolysis, just as an extra worker for the rate limiting step on the assembly line would imply increased flux through the assembly line.
 # The solution
-Here, we present the function fluximplied (as well as the functions it depends on). Fluximplied needs a list of genes or a dataframe result from differential expression analysis, the species that the genes are from (it currently accepts only mouse and human), as well as how those genes are encoded (as official gene symbols or official ENTREZIDs). We have created a publicly accessible database of rate limiting steps and the gene that encodes them. The function compares your supplied gene list with this database and looks for overlaps, and then returns those overlaps to help you generate hypotheses and followup analyses with flux balance analysis or other functional assays. 
+Here, we present the R package fluximplied. Fluximplied requires a list of genes or a dataframe result from differential expression analysis as the input data, the species that the genes are from (it currently accepts only mouse and human), as well as how those genes are encoded (as official gene symbols or official ENTREZIDs). We have created a publicly accessible database of rate limiting steps and the gene that encodes them. The function compares your supplied gene list with this database and looks for overlaps, and then returns those overlaps to help you generate hypotheses and followup analyses with flux balance analysis or other functional assays. 
 
-In order to maintain statisitcal rigor, P values, what we term "P adjust adjust" or "P<sub>adjadj</sub>", are determined with standard P adjustment of the P values which were adjusted during the differential expression analysis. Fluximplied will will adjust the P<sub>adj</sub> using the Benjamini Hochberg (BH) method for the number of comparisons being made with the Rate Limiting Step Database, that is, the number of genes within that database.
+In order to maintain statisitcal rigor, P values, what we term "P adjust adjust" or "P<sub>adjadj</sub>", are determined with standard P adjustment of the P values which were adjusted during the differential expression analysis. Fluximplied will adjust the P<sub>adj</sub> using the Benjamini-Hochberg (BH) method for the number of comparisons being made with the Rate Limiting Step Database (that is, the number of genes within that database).
 # How to install
 
 **Mac and PC**
@@ -24,23 +24,22 @@ You can use an interactive graphic user interface (GUI) which allows you to uplo
 
 Or, for those with more experience using R, simply install the package (ensure you have an internet connection):
 
-`install.packages("devtools")`\
+`install.packages('devtools')`\
 `library(devtools)`\
 `install_github('sportiellomike/fluximplied')`\
 `library(fluximplied)`
 
-
 **Linux**
 
-Info: Root access is required; Ubuntu version: 20.04 LTS (amd64), XFCE4 Desktop Environment; R version tested on ubuntu: v3.6.3
-
-Linux requires certain dependencies installed on your actual machine (not just other R packages). We made this easy on you by supplying a bash script. The bash script is found here called "install_for_ubuntu-fluximplied.sh". To run it, download it from https://github.com/sportiellomike/fluximplieddev and run it by typing the following into the terminal while being in the correct directory:
+Root access is required. Linux requires certain dependencies installed on your actual machine (not just other R packages). We made this easy on you by supplying a bash script. The bash script is called "install_for_ubuntu-fluximplied.sh". To run it, download it from https://github.com/sportiellomike/fluximplieddev and run it by typing the following into the terminal while being in the correct directory:
 
 `bash install_for_ubuntu-fluximplied.sh`
 
+We tested fluximplied installation with that script on Ubuntu version: 20.04 LTS (amd64), XFCE4 Desktop Environment; R version tested on ubuntu: v3.6.3.
 **If those installs are not working**
+Navigate to the functions at https://github.com/sportiellomike/fluximplied/tree/master/R, and download them and run those scripts. 
 
-Navigate to the functions at https://github.com/sportiellomike/fluximplied/tree/master/R, and download them and run those scripts. We offer all this code for free and in open source, and only ask in return that you cite us so other people can learn about this and help contribute.
+We offer all this code for free and in open source, and only ask in return that you cite us so other people can learn about this and help contribute.
 
 # How to use
 **The function is formatted as follows:**
