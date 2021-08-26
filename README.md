@@ -26,7 +26,7 @@ Or, for those with more experience using R, simply install the package (ensure y
 
 `install.packages('devtools')`\
 `library(devtools)`\
-`install_github('sportiellomike/fluximplied')`\
+`install_github('sportiellomike/fluximplied',build_vignettes=T)`\
 `library(fluximplied)`
 
 **Linux**

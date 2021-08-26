@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 # you may have to install devtools with the below code
 # install.packages("devtools")
 # library(devtools)
-# install_github('sportiellomike/fluximplied')
+# install_github('sportiellomike/fluximplied',build_vignettes=T)
 library(fluximplied)
 ```
 
