@@ -1,0 +1,71 @@
+---
+title: "fluximplied vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{my-vignette}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+# download fluximplied from github
+# if you're reading this, you probably already have, so I've commented out all these steps.
+# you may have to install devtools with the below code
+# install.packages("devtools")
+# library(devtools)
+# install_github('sportiellomike/fluximplied')
+library(fluximplied)
+```
+
+```{r}
+# Let's use the exampleData included in this package
+head(exampleData)
+```
+
+```{r,fig.width=7,fig.align='center'}
+# let's load the parameters for fluximplied
+inputdat<-exampleData
+inputformat='df'
+species="mmu"
+geneformat="SYMBOL"
+padjcolname='padj'
+pcutoff=0.05
+# now actually run fluximplied
+fluximplied(inputdat,
+            species,
+            geneformat,
+            inputformat,
+            padjcolname,
+            pcutoff)
+
+```
+
+```{r,fig.width=7,fig.align='center'}
+# You can also change the title and any other part of the plot using standard ggplot functions
+fluximpliedplot+
+  ggtitle('hello world')+
+  theme_dark()+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+```{r}
+# Here is an example with a character vector of genes.
+inputdat<-c('Cpt1a','Ifng','Tnf','Pfkl')
+inputformat<-'vector'
+fluximplied(inputdat,
+            species,
+            geneformat,
+            inputformat,
+            padjcolname,
+            pcutoff)
+
+###FIN###
+```
