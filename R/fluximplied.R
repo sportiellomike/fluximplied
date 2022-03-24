@@ -31,7 +31,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   RLSpathways<-RLSdatabase$metabolic.reaction
   #add kegg pathway ids
   KEGGpathwayids<-RLSdatabase$kegg.pathway.id
-  #make a dataframe with those genes and pathways
+  #make a data frame with those genes and pathways
   RLS<-data.frame(RLSgenes,RLSpathways,KEGGpathwayids)
   #create the responses if there are any genes left after subsetting on your genes
   #that are also in our database for being rate limiting steps
@@ -67,9 +67,9 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
          plottable<-significancetable
          plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolicrxn,')')
          if (!require(ggplot2)) {
-           stop("ggplot2 not installed. Install it from CRAN.")}
+           stop("ggplot2 is not installed. Install it from CRAN.")}
          if (!require(viridis)) {
-           stop("viridis not installed. Install it from CRAN.")}
+           stop("viridis is not installed. Install it from CRAN.")}
          fluximpliedplot<<-ggplot(plottable, aes(x=reorder(genepath,log2FoldChange), y=log2FoldChange , label=log2FoldChange)) +
            geom_bar(stat='identity', aes(fill=padjadj), width=.5,position="dodge")  +
            scale_fill_viridis(end=.9) +
