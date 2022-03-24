@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' fluximplied(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)
-fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05) {
+fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',RLSdatabase=RLSdatabase,pcutoff=0.05) {
   list.of.packages <- c("viridis",
                         "ggplot2",
                         'shinythemes',
