@@ -63,6 +63,8 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
          {significancetable<-inputssubset
          significancetable$metabolicrxn <- myRLStable$`Pathway associated with gene`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
          significancetable$keggpathwayid <- myRLStable$`KEGG Pathway ID`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
+         names(significancetable)[names(significancetable) == 'metabolicrxn']<-'metabolic_rxn'
+         names(significancetable)[names(significancetable) == 'keggpathwayid']<-'kegg_pathway_id'
          significancetable<<-significancetable
          plottable<-significancetable
          plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolicrxn,')')
