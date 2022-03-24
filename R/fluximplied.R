@@ -66,6 +66,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
          significancetable<<-significancetable
          plottable<-significancetable
          plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolicrxn,')')
+         head(plottable)
          if (!require(ggplot2)) {
            stop("ggplot2 is not installed. Install it from CRAN.")}
          if (!require(viridis)) {
