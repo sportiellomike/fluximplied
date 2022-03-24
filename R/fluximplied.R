@@ -14,7 +14,11 @@
 #' @examples
 #' fluximplied(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)
 fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05) {
-  list.of.packages <- c("viridis", "ggplot2",'shinythemes','Cairo','shiny')
+  list.of.packages <- c("viridis",
+                        "ggplot2",
+                        'shinythemes',
+                        'Cairo',
+                        'shiny')
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
   if(length(new.packages)) install.packages(new.packages)
   lapply(list.of.packages, require, character.only = TRUE)
@@ -62,8 +66,8 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
          significancetable<<-significancetable
          plottable<-significancetable
          plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolicrxn,')')
-         ifelse (!require(ggplot2),stop("ggplot2 not installed"),1+1)
-         ifelse (!require(viridis),stop("viridis not installed"),1+1)
+         ifelse (!require(ggplot2),stop("ggplot2 not installed. Install it from CRAN."),1+1)
+         ifelse (!require(viridis),stop("viridis not installed. Install it from CRAN."),1+1)
          fluximpliedplot<<-ggplot(plottable, aes(x=reorder(genepath,log2FoldChange), y=log2FoldChange , label=log2FoldChange)) +
            geom_bar(stat='identity', aes(fill=padjadj), width=.5,position="dodge")  +
            scale_fill_viridis(end=.9) +
