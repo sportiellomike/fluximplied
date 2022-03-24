@@ -66,8 +66,10 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
          significancetable<<-significancetable
          plottable<-significancetable
          plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolicrxn,')')
-         ifelse (!require(ggplot2),stop("ggplot2 not installed. Install it from CRAN."),1+1)
-         ifelse (!require(viridis),stop("viridis not installed. Install it from CRAN."),1+1)
+         if (!require(ggplot2)) {
+           stop("ggplot2 not installed. Install it from CRAN.")}
+         if (!require(viridis)) {
+           stop("viridis not installed. Install it from CRAN.")}
          fluximpliedplot<<-ggplot(plottable, aes(x=reorder(genepath,log2FoldChange), y=log2FoldChange , label=log2FoldChange)) +
            geom_bar(stat='identity', aes(fill=padjadj), width=.5,position="dodge")  +
            scale_fill_viridis(end=.9) +
