@@ -61,12 +61,11 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   #print the RLS database that has been subset to only include genes that are in user's list
   ifelse(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe',
          {significancetable<-inputssubset
-         significancetable$metabolicrxn <- myRLStable$`Pathway associated with gene`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
-         significancetable$keggpathwayid <- myRLStable$`KEGG Pathway ID`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
+         significancetable$metabolic_rxn <- myRLStable$`Pathway associated with gene`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
+         significancetable$kegg_pathway_id <- myRLStable$`KEGG Pathway ID`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
          significancetable<<-significancetable
          plottable<-significancetable
-         plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolicrxn,')')
-         head(plottable)
+         plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolic_rxn,')')
          if (!require(ggplot2)) {
            stop("ggplot2 is not installed. Install it from CRAN.")}
          if (!require(viridis)) {
