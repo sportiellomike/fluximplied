@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' fluximplied(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)
-fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05) {
+fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange',pcutoff=0.05) {
   # load and install packages
   list.of.packages <- c("viridis",
                         "ggplot2",
@@ -38,8 +38,14 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   # make sure their padjcolname is actually in the vector they supplied
   `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
   if(inputformat %in% dflist & padjcolname %!in% colnames(inputdat)) {
-    stop("It looks like the column name of what you gave us isn't actually in the df you provided. Please correct which column name is your padj column.")
+    stop("You told us your padjcolname was something that isn't actually in the data frame your provided. Please correct which column name is your padj column.")
     }
+  
+  # make sure their LFC column is actually in the vector they supplied
+  if(inputformat %in% dflist & LFCcolname %!in% colnames(inputdat)) {
+  stop("You told us your LFCcolname was something that isn't actually in the data frame your provided. Please correct which column name is your padj column.")
+    }
+  
   # function to see if there are any rate limiting steps in gene list
   #load the rate limiting step database
   #convert the database that matches your data for species and geneformat (Symbol or ENTREZID)
