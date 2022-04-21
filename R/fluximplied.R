@@ -64,10 +64,14 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
                 inputdat<-subset(inputdat,rownames(inputdat) %in% RLSgenes)
                   inputdat$padjadj<-p.adjust(inputdat[[padjcolname]],method = 'BH')
                   inputssubset<-subset(inputdat,inputdat$padjadj<pcutoff)
-                  inputdat<-rownames(inputssubset)},
+                  inputdat<-rownames(inputssubset)}
+                  if(nrow(inputssubset)==0){
+                  stop("There are no genes in your set that reach significance according to your supplied pcutoff.")
+                  },
                 print('It appears that you supplied an input that was neither a dataframe nor a vector.')
          )
   )
+  
   #subset the database to only include genes in your set
   subset<-subset(RLS,RLS$RLSgenes %in% inputdat)
   #change the column names so the user knows what each column actually is
@@ -76,7 +80,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   intersect<-intersect(inputdat,RLSgenes)
   lengthintersect<-length(intersect)
   print1<<-ifelse(lengthintersect==0,
-         (paste('There are no genes in your set that are in our rate limiting step database. Make sure you gave the correct species (Mmu or Hsa only) and geneformat (Symbol or ENTREZID only). If you are using the interactive GUI, you should be uploading a dataframe with a column of p values, a column called log2FoldChange, and genes should be in the first column. If you are not using the GUI, you can use the dataframe from a DESeq2 result with genes as rownames, or a character vector of genes. Sorry about that. We are as sad as you.')),
+         (paste('There are no genes in your set that are in our rate limiting step database. Make sure you gave the correct species (Mmu or Hsa only) and geneformat (Symbol or ENTREZID only). If you are using the interactive GUI, you should be uploading a dataframe with a column of p values, a column called log2FoldChange, and genes should be in the first column. If you are not using the GUI, you can use the dataframe from a seurat or DESeq2 result with genes as rownames, or a character vector of genes. Sorry about that. We are as sad as you.')),
                {(paste0('Your gene set has --------> ',lengthintersect,' <-------- genes that have been identified as encoding enzymes involved as rate-limiting steps in the gene set you provided. If you are running this from Rstudio or the command line (not the interactive app), your RLS genes are saved as myRLSgenes and a dataframe of genes and corresponding pathways is saved as myRLStable.'))})
   #save the outputs so the user can hold onto them and look at them
   myRLStable<<-subset
