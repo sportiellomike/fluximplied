@@ -37,7 +37,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   
   # make sure their padjcolname is actually in the vector they supplied
   `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
-  if(inputformat %in% dflist & padjcolname %!in% colnames(inputdat) {
+  if(inputformat %in% dflist & padjcolname %!in% colnames(inputdat)) {
     stop("It looks like the column name of what you gave us isn't actually in the df you provided. Please correct which column name is your padj column.")
     }
   # function to see if there are any rate limiting steps in gene list
