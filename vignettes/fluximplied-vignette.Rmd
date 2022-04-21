@@ -19,8 +19,8 @@ knitr::opts_chunk$set(
 # if you're reading this, you probably already have, so I've commented out all these steps.
 # you may have to install devtools with the below code: 
 # install.packages("devtools")
-# library(devtools)
-# install_github('sportiellomike/fluximplied',build_vignettes=T)
+library(devtools)
+install_github('sportiellomike/fluximplied',build_vignettes=F,force=T)
 library(fluximplied)
 ```
 
@@ -50,9 +50,11 @@ fluximplied(inputdat,
 ```{r,fig.width=7,fig.align='center'}
 # You can also change the title and any other part of the plot using standard ggplot functions
 fluximpliedplot+
+  scale_fill_viridis(option='plasma',end=.8)+
   ggtitle('hello world')+
   theme_dark()+
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5),
+        axis.text = element_text(size=14,color='green'))
 ```
 
 
