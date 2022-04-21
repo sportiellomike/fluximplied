@@ -14,6 +14,7 @@
 #' @examples
 #' fluximplied(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)
 fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05) {
+  # load and install packages
   list.of.packages <- c("viridis",
                         "ggplot2",
                         'shinythemes',
@@ -22,7 +23,23 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
   if(length(new.packages)) install.packages(new.packages)
   lapply(list.of.packages, require, character.only = TRUE)
-
+  
+  #define df
+  dflist<-c('df','DF','Df','dataframe','Dataframe','DataFrame','DATAFRAME')
+  if(inputformat %in% dflist) {
+    inputformat<-'df'
+    }
+  #define vector
+  veclist<-c('vector','Vector','vec','Vec','VECTOR')
+  if(inputformat %in% veclist) {
+    inputformat<-'vector'
+    }
+  
+  # make sure their padjcolname is actually in the vector they supplied
+  `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
+  if(inputformat %in% dflist & padjcolname %!in% colnames(inputdat) {
+    stop("It looks like the column name of what you gave us isn't actually in the df you provided. Please correct which column name is your padj column.")
+    }
   # function to see if there are any rate limiting steps in gene list
   #load the rate limiting step database
   #convert the database that matches your data for species and geneformat (Symbol or ENTREZID)
