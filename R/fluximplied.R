@@ -66,7 +66,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='
   cat('directlybefore line 68 ',inputformat)
   cat(class(inputformat))
   cat(str(inputformat))
-  ifelse(inputformat=='df',cat('inputformat is df'),cat('inputformat is not df'))
+  
   if(inputformat %in% veclist) {
     print('We are using your vector of genes as the inputdat')
   }
