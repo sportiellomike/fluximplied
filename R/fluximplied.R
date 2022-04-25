@@ -64,6 +64,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   #create the responses if there are any genes left after subsetting on your genes
   #that are also in our database for being rate limiting steps
   cat('directlybefore line 68 ',inputformat)
+  cat(class(inputformat))
    ifelse(inputformat=='vector'||inputformat=='Vector'||inputformat=='VECTOR',
          print('We are using your vector of genes as the inputdat'),
          ifelse(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe'||inputformat=='data.frame',{
