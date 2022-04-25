@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' fluximplied(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)
-fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange',pcutoff=0.05) {
+fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange',pcutoff=0.05) {
   cat('Directly after function starts ',inputformat)
   # load and install packages
   list.of.packages <- c("viridis",
