@@ -60,7 +60,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   #that are also in our database for being rate limiting steps
    ifelse(inputformat=='vector'||inputformat=='Vector'||inputformat=='VECTOR',
          print('We are using your vector of genes as the inputdat'),
-         ifelse(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe',{
+         ifelse(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe'||inputformat=='data.frame',{
                 inputdat<-subset(inputdat,rownames(inputdat) %in% RLSgenes)
                   inputdat$padjadj<-p.adjust(inputdat[[padjcolname]],method = 'BH')
                   inputssubset<-subset(inputdat,inputdat$padjadj<pcutoff)
@@ -87,7 +87,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   myRLStable<<-subset
   myRLSgenes<<-intersect(RLS$RLSgenes,inputdat)
   #print the RLS database that has been subset to only include genes that are in user's list
-  if(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe')
+  if(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe'||inputformat=='data.frame')
          {significancetable<-inputssubset
          significancetable$metabolicrxn <- myRLStable$`Pathway associated with gene`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
          significancetable$keggpathwayid <- myRLStable$`KEGG Pathway ID`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
