@@ -32,8 +32,6 @@ if(class(geneformat)!= 'character'){
   stop("You did not supply the correct class of argument to geneformat It should look something like geneformat='symbol' with the argument in quotes.") 
 }
 
-inputformat<-class(inputdat) # changes the user supplied inputformat to just reading it directly from inputdat
-
 if(class(padjcolname)!= 'character'){
   stop("You did not supply the correct class of argument to padjcolname It should look something like padjcolname='P_adjusted' with the argument in quotes.") 
 }
