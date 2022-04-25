@@ -64,9 +64,10 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
                 inputdat<-subset(inputdat,rownames(inputdat) %in% RLSgenes)
                   inputdat$padjadj<-p.adjust(inputdat[[padjcolname]],method = 'BH')
                   inputssubset<-subset(inputdat,inputdat$padjadj<pcutoff)
-                  inputdat<-rownames(inputssubset)}
+                  inputdat<-rownames(inputssubset)
                   if(nrow(inputssubset)==0){
                   stop("There are no genes in your set that reach significance according to your supplied pcutoff.")
+                  }
                   },
                 print('It appears that you supplied an input that was neither a dataframe nor a vector.')
          )
