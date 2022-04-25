@@ -89,7 +89,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='
   myRLStable<<-subset
   myRLSgenes<<-intersect(RLS$RLSgenes,inputdat)
   #print the RLS database that has been subset to only include genes that are in user's list
-  if(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe'||inputformat=='data.frame')
+  if(inputformat %in% dflist)
          {significancetable<-inputssubset
          significancetable$metabolicrxn <- myRLStable$`Pathway associated with gene`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
          significancetable$keggpathwayid <- myRLStable$`KEGG Pathway ID`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
@@ -108,6 +108,6 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='
                  axis.text = element_text(size=12))+
            coord_flip()
          plot(fluximpliedplot)}
-  return((print1))
+  cat(print1)
 
  }
