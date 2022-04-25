@@ -25,12 +25,12 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   lapply(list.of.packages, require, character.only = TRUE)
   
   #define df
-  dflist<-c('df','DF','Df','dataframe','Dataframe','DataFrame','DATAFRAME')
+  dflist<-c('df','DF','Df','dataframe','Dataframe','DataFrame','DATAFRAME','data.frame')
   if(inputformat %in% dflist) {
     inputformat<-'df'
     }
   #define vector
-  veclist<-c('vector','Vector','vec','Vec','VECTOR')
+  veclist<-c('vector','Vector','vec','Vec','VECTOR','character')
   if(inputformat %in% veclist) {
     inputformat<-'vector'
     }
