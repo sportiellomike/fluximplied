@@ -27,14 +27,14 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='
   
     #define df
   dflist<-c('df','DF','Df','dataframe','Dataframe','DataFrame','DATAFRAME','data.frame')
-  if(inputformat %in% dflist) {
-    inputformat<-'df'
-    }
+  # if(inputformat %in% dflist) {
+  #   inputformat<-'df'
+  #   }
   #define vector
   veclist<-c('vector','Vector','vec','Vec','VECTOR','character')
-  if(inputformat %in% veclist) {
-    inputformat<-'vector'
-    }
+  # if(inputformat %in% veclist) {
+  #   inputformat<-'vector'
+  #   }
   cat('Directly after dflist is made and just before can we flux it up ',inputformat)
   # ensure all the inputs are of correct format
   canwefluxitup(inputdat=inputdat,species=species,geneformat=geneformat,padjcolname=padjcolname,
