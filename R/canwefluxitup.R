@@ -4,7 +4,6 @@
 #' @param inputdat what you are using as your input data, either a data frame with genes as the rownames, a column for LFC, and a column for padj values
 #' @param species either mus or hsa
 #' @param geneformat either ENTREZ or symbol
-#' @param inputformat either df or vector
 #' @param padjcolname the name of the column in your data frame, if applicable, that stores the padj values
 #' @param LFCcolname the name of the column in your data frame, if applicable, that stores the Log Fold Change values
 #' @param pcutoff the alpha threshold for your padjustadjust
@@ -13,8 +12,8 @@
 #' @export
 #'
 #' @examples
-#' canwefluxitup(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange', pcutoff=0.05)
-canwefluxitup <- function(inputdat=inputdat,species=species,geneformat=geneformat,inputformat=inputformat,padjcolname=padjcolname, LFCcolname=LFCcolname,pcutoff=pcutoff) {
+#' canwefluxitup(inputdat=exampleData,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange', pcutoff=0.05)
+canwefluxitup <- function(inputdat=inputdat,species=species,geneformat=geneformat,padjcolname=padjcolname, LFCcolname=LFCcolname,pcutoff=pcutoff) {
   # initiate the not in operator
 `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
 
