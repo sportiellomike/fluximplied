@@ -14,7 +14,7 @@
 #' @examples
 #' fluximplied(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)
 fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange',pcutoff=0.05) {
-  cat('Directly after function starts 'inputformat)
+  cat('Directly after function starts ',inputformat)
   # load and install packages
   list.of.packages <- c("viridis",
                         "ggplot2",
@@ -35,11 +35,11 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   if(inputformat %in% veclist) {
     inputformat<-'vector'
     }
-  cat('Directly after dflist is made and just before can we flux it up 'inputformat)
+  cat('Directly after dflist is made and just before can we flux it up ',inputformat)
   # ensure all the inputs are of correct format
   canwefluxitup(inputdat=inputdat,species=species,geneformat=geneformat,inputformat=inputformat,padjcolname=padjcolname,
                 LFCcolname=LFCcolname,pcutoff=pcutoff)
-  cat('Directly after canwefluxitup 'inputformat)
+  cat('Directly after canwefluxitup ',inputformat)
   # make sure their padjcolname is actually in the vector they supplied
   `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
   if(inputformat %in% dflist & padjcolname %!in% colnames(inputdat)) {
