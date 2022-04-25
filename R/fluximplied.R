@@ -65,7 +65,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   #that are also in our database for being rate limiting steps
   cat('directlybefore line 68 ',inputformat)
   cat(class(inputformat))
-  ifelse(inputformat=='df',cat('inputformat is df',cat('inputformat is not df'))
+  ifelse(inputformat=='df',cat('inputformat is df'),cat('inputformat is not df'))
   ifelse(inputformat=='vector'||inputformat=='Vector'||inputformat=='VECTOR',
          print('We are using your vector of genes as the inputdat'),
          ifelse(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe'||inputformat=='data.frame',{
