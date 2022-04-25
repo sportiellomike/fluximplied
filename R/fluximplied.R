@@ -13,7 +13,7 @@
 #'
 #' @examples
 #' fluximplied(inputdat=exampleData,species='mmu',geneformat='SYMBOL',inputformat='df',padjcolname='adj_pvalue',pcutoff=0.05)
-fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange',pcutoff=0.05) {
+fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', inputformat='df',LFCcolname='Log2FoldChange',pcutoff=0.05) {
   cat('Directly after function starts ',inputformat)
   # load and install packages
   list.of.packages <- c("viridis",
@@ -37,7 +37,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='
     }
   cat('Directly after dflist is made and just before can we flux it up ',inputformat)
   # ensure all the inputs are of correct format
-  canwefluxitup(inputdat=inputdat,species=species,geneformat=geneformat,inputformat=inputformat,padjcolname=padjcolname,
+  canwefluxitup(inputdat=inputdat,species=species,geneformat=geneformat,padjcolname=padjcolname,
                 LFCcolname=LFCcolname,pcutoff=pcutoff)
   cat('Directly after canwefluxitup ',inputformat)
   # make sure their padjcolname is actually in the vector they supplied
