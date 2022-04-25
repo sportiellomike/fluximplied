@@ -37,8 +37,8 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='
   #   }
   cat('Directly after dflist is made and just before can we flux it up ',inputformat)
   # ensure all the inputs are of correct format
-  canwefluxitup(inputdat=inputdat,species=species,geneformat=geneformat,padjcolname=padjcolname,
-                LFCcolname=LFCcolname,pcutoff=pcutoff)
+  # canwefluxitup(inputdat=inputdat,species=species,geneformat=geneformat,padjcolname=padjcolname,
+  #               LFCcolname=LFCcolname,pcutoff=pcutoff)
   cat('Directly after canwefluxitup ',inputformat)
   # make sure their padjcolname is actually in the vector they supplied
   `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
