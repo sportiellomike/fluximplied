@@ -67,20 +67,18 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   cat(class(inputformat))
   cat(str(inputformat))
   ifelse(inputformat=='df',cat('inputformat is df'),cat('inputformat is not df'))
-  ifelse(inputformat=='vector'||inputformat=='Vector'||inputformat=='VECTOR',
-         print('We are using your vector of genes as the inputdat'),
-         ifelse(inputformat=='df'||inputformat=='DF'||inputformat=='Df'||inputformat=='dataframe'||inputformat=='Dataframe'||inputformat=='data.frame',{
+  if(inputformat %in% veclist) {
+    print('We are using your vector of genes as the inputdat')
+  }
+  if(inputformat %in% dflist) {
                 inputdat<-subset(inputdat,rownames(inputdat) %in% RLSgenes)
-                  inputdat$padjadj<-p.adjust(inputdat[[padjcolname]],method = 'BH')
-                  inputssubset<-subset(inputdat,inputdat$padjadj<pcutoff)
-                  inputdat<-rownames(inputssubset)
-                  if(nrow(inputssubset)==0){
-                  stop("There are no genes in your set that reach significance according to your supplied pcutoff.")
-                  }
-                  },
-                print('It appears that you supplied an input that was neither a dataframe nor a vector.')
-         )
-  )
+                inputdat$padjadj<-p.adjust(inputdat[[padjcolname]],method = 'BH')
+                inputssubset<-subset(inputdat,inputdat$padjadj<pcutoff)
+                inputdat<-rownames(inputssubset)
+                if(nrow(inputssubset)==0){
+                stop("There are no genes in your set that reach significance according to your supplied pcutoff.")
+                }
+  }
    cat('directlybefore line 82 ',inputformat)
   #subset the database to only include genes in your set
   subset<-subset(RLS,RLS$RLSgenes %in% inputdat)
