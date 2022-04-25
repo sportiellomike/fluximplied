@@ -35,7 +35,8 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
     inputformat<-'vector'
     }
   # ensure all the inputs are of correct format
-  canwefluxitup()
+  canwefluxitup(inputdat=inputdat,species=species,geneformat=geneformat,inputformat=inputformat,padjcolname=padjcolname,
+                LFCcolname=LFCcolname,pcutoff=pcutoff)
   
   # make sure their padjcolname is actually in the vector they supplied
   `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
