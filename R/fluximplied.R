@@ -24,7 +24,7 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   if(length(new.packages)) install.packages(new.packages)
   lapply(list.of.packages, require, character.only = TRUE)
   
-  #define df
+    #define df
   dflist<-c('df','DF','Df','dataframe','Dataframe','DataFrame','DATAFRAME','data.frame')
   if(inputformat %in% dflist) {
     inputformat<-'df'
@@ -34,6 +34,8 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',inputformat='
   if(inputformat %in% veclist) {
     inputformat<-'vector'
     }
+  # ensure all the inputs are of correct format
+  canwefluxitup()
   
   # make sure their padjcolname is actually in the vector they supplied
   `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
