@@ -105,7 +105,10 @@ fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='
            scale_fill_viridis(end=.9) +
            labs(title= "Pathway analysis with 'fluximplied'",x='',y=bquote('Log'[2]('Fold Change')),fill=bquote('P'['adjadj'])) +
            theme(axis.title = element_text(size=12),
-                 axis.text = element_text(size=12))+
+                 axis.text = element_text(size=12),
+                 panel.background = element_blank(),
+                 panel.grid.major = element_line(color='light grey'))+
+          
            coord_flip()
          plot(fluximpliedplot)}
   cat(print1)
