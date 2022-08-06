@@ -12,7 +12,7 @@ specform(species, geneformat)
 \item{geneformat}{either entrez or symbol to make sure the rate limiting step database understands what the format of your genes are in}
 }
 \value{
-
+This sets up the RLS table according to the parameters you put in for fluximplied().
 }
 \description{
 ensures the user supplied correct syntax to use fluximplied

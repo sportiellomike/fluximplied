@@ -8,26 +8,27 @@ fluximplied(
   inputdat,
   species = "mmu",
   geneformat = "SYMBOL",
-  inputformat = "df",
   padjcolname = "adj_pvalue",
+  inputformat = "df",
+  LFCcolname = "Log2FoldChange",
   pcutoff = 0.05
 )
 }
 \arguments{
-\item{inputdat}{what you are using as your input data, either a dataframe with genes as the rownames, a column for LFC, and a column for padj values}
+\item{inputdat}{what you are using as your input data, either a data frame with genes as the rownames, a column for LFC, and a column for padj values}
 
 \item{species}{either mus or hsa}
 
 \item{geneformat}{either ENTREZ or symbol}
 
-\item{inputformat}{either df or vector}
+\item{padjcolname}{the name of the column in your data frame, if applicable, that stores the padj values}
 
-\item{padjcolname}{the name of the column in your dataframe, if applicable, that stores the padj values}
+\item{inputformat}{either df or vector}
 
 \item{pcutoff}{the alpha threshold for your padjustadjust}
 }
 \value{
-If a dataframe was supplied, it should also return a dataframe as well as a bar graph of the enriched pathways.
+If a data frame was supplied, it should also return a data frame as well as a bar graph of the enriched pathways.
 }
 \description{
 Pathway analysis of DESeq2 result or character vector of differentially expressed genes which also plots results.

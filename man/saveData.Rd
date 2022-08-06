@@ -9,9 +9,6 @@ saveData(data)
 \arguments{
 \item{data}{}
 }
-\value{
-
-}
 \description{
 used in shiny app
 }

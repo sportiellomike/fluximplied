@@ -1,7 +1,7 @@
 Package: fluximplied
 Type: Package
 Title: Pathway analysis software utilizing rate limiting steps
-Version: 0.1.0
+Version: 0.2.0
 Author: Authors@R: c(
     person("Mike", "Sportiello", email = "michael_sportiello@urmc.rochester.edu",role = c("aut", "cre"))
     person("Adam", "Geber", email = "adam_geber@urmc.rochester.edu", role = "aut"))
@@ -20,7 +20,7 @@ Imports:
     ggplot2,
     shinythemes,
     Cairo
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.1
 Suggests: 
     rmarkdown,
     knitr

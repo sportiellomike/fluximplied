@@ -8,7 +8,7 @@
 #' @return A shiny app will be launched.
 #' @export
 #'
-#' @examples
+#' @examples shinyfluximplied() doesn't need to take any arguements, it will just launch the interactive gui.
 shinyfluximplied=function(ui = ui, server= server){
 #build shiny app
 if (interactive()) {

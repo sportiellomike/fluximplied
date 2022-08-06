@@ -5,7 +5,7 @@
 #' @param species either mus or hsa for mouse or human to make sure the species is defined
 #' @param geneformat either entrez or symbol to make sure the rate limiting step database understands what the format of your genes are in
 #'
-#' @return
+#' @return This sets up the RLS table according to the parameters you put in for fluximplied().
 #' @export
 #'
 #' @examples specform(species='mmu',geneformat='symbol')

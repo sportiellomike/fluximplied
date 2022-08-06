@@ -6,9 +6,6 @@
 \usage{
 loadData()
 }
-\value{
-
-}
 \description{
 used in shiny app
 }
