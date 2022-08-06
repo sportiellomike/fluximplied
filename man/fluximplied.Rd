@@ -25,6 +25,8 @@ fluximplied(
 
 \item{inputformat}{either df or vector}
 
+\item{LFCcolname}{the name of the column in your data frame, if applicable, that stores the Log2FoldChange Values}
+
 \item{pcutoff}{the alpha threshold for your padjustadjust}
 }
 \value{
@@ -34,5 +36,11 @@ If a data frame was supplied, it should also return a data frame as well as a ba
 Pathway analysis of DESeq2 result or character vector of differentially expressed genes which also plots results.
 }
 \examples{
-fluximplied(inputdat = exampleData,geneformat="SYMBOL",species = "mmu",padjcolname = 'padj',inputformat = 'df',LFCcolname = 'log2FoldChange',pcutoff = 0.05)
+fluximplied(inputdat = exampleData,
+geneformat="SYMBOL",
+species = "mmu",
+padjcolname = 'padj',
+inputformat = 'df',
+LFCcolname = 'log2FoldChange',
+pcutoff = 0.05)
 }

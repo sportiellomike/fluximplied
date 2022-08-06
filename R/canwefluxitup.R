@@ -12,7 +12,12 @@
 #' @export
 #'
 #' @examples
-#' canwefluxitup(inputdat=exampleData,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange', pcutoff=0.05)
+#' canwefluxitup(inputdat=exampleData,
+#' species='mmu',
+#' geneformat='SYMBOL',
+#' padjcolname='adj_pvalue',
+#' LFCcolname='Log2FoldChange',
+#' pcutoff=0.05)
 canwefluxitup <- function(inputdat=inputdat,species=species,geneformat=geneformat,padjcolname=padjcolname, LFCcolname=LFCcolname,pcutoff=pcutoff) {
   # initiate the not in operator
 `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator

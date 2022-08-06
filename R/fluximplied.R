@@ -6,13 +6,20 @@
 #' @param geneformat either ENTREZ or symbol
 #' @param inputformat either df or vector
 #' @param padjcolname the name of the column in your data frame, if applicable, that stores the padj values
+#' @param LFCcolname the name of the column in your data frame, if applicable, that stores the Log2FoldChange Values
 #' @param pcutoff the alpha threshold for your padjustadjust
 #'
 #' @return If a data frame was supplied, it should also return a data frame as well as a bar graph of the enriched pathways.
 #' @export
 #'
 #' @examples
-#' fluximplied(inputdat = exampleData,geneformat="SYMBOL",species = "mmu",padjcolname = 'padj',inputformat = 'df',LFCcolname = 'log2FoldChange',pcutoff = 0.05)
+#' fluximplied(inputdat = exampleData,
+#' geneformat="SYMBOL",
+#' species = "mmu",
+#' padjcolname = 'padj',
+#' inputformat = 'df',
+#' LFCcolname = 'log2FoldChange',
+#' pcutoff = 0.05)
 fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', inputformat='df',LFCcolname='Log2FoldChange',pcutoff=0.05) {
   # load and install packages
   list.of.packages <- c("viridis",

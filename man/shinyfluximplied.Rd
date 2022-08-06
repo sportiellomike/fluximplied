@@ -17,3 +17,6 @@ A shiny app will be launched.
 \description{
 Use this function shinyfluximplied() to launch the interactive
 }
+\examples{
+shinyfluximplied()
+}

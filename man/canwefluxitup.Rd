@@ -33,5 +33,10 @@ It should stop and print out what is wrong with your inputs if anything.
 This function makes sure that your arguments are formatted correctly. You can call it, but it is also called within fluximplied().
 }
 \examples{
-canwefluxitup(inputdat=exampleData,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', LFCcolname='Log2FoldChange', pcutoff=0.05)
+canwefluxitup(inputdat=exampleData,
+species='mmu',
+geneformat='SYMBOL',
+padjcolname='adj_pvalue',
+LFCcolname='Log2FoldChange',
+pcutoff=0.05)
 }
