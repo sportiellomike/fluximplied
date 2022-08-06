@@ -77,7 +77,7 @@ pcutoff=0.05
 ```
 
 ```{r,fig.width=7,fig.align='center'}
-# let's reset our parameters to the original ones including using our dataset with significatn Padj values.
+# let's reset our parameters to the original ones including using our dataset with significant Padj values.
 inputdat<-exampleData
 inputformat='df'
 species="mmu"
