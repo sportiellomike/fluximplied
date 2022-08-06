@@ -19,8 +19,8 @@ knitr::opts_chunk$set(
 # if you're reading this, you probably already have, so I've commented out all these steps.
 # you may have to install devtools with the below code: 
 # install.packages("devtools")
-# library(devtools)
-# install_github('sportiellomike/fluximplied',build_vignettes=T)
+library(devtools)
+install_github('sportiellomike/fluximplied@dev',build_vignettes=F)
 library(fluximplied)
 ```
 
@@ -36,15 +36,17 @@ inputformat='df'
 species="mmu"
 geneformat="SYMBOL"
 padjcolname='padj'
+LFCcolname= 'log2FoldChange'
 pcutoff=0.05
-# now actually run fluximplied
-fluximplied(inputdat,
-            species,
-            geneformat,
-            inputformat,
-            padjcolname,
-            pcutoff)
 
+# now actually run fluximplied
+fluximplied(inputdat = inputdat,
+            geneformat=geneformat,
+            species = species,
+            padjcolname = padjcolname,
+            inputformat = inputformat,
+            LFCcolname = LFCcolname,
+            pcutoff = pcutoff)
 ```
 
 ```{r,fig.width=7,fig.align='center'}
@@ -52,7 +54,8 @@ fluximplied(inputdat,
 fluximpliedplot+
   ggtitle('hello world')+
   theme_dark()+
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5))+
+  scale_fill_gradient2() 
 ```
 
 
@@ -60,12 +63,18 @@ fluximpliedplot+
 # Here is an example with a character vector of genes.
 inputdat<-c('Cpt1a','Ifng','Tnf','Pfkl')
 inputformat<-'vector'
-fluximplied(inputdat,
-            species,
-            geneformat,
-            inputformat,
-            padjcolname,
-            pcutoff)
+fluximplied(inputdat = inputdat,
+            geneformat=geneformat,
+            species = species,
+            padjcolname = padjcolname,
+            inputformat = inputformat,
+            LFCcolname = LFCcolname,
+            pcutoff = pcutoff)
 
 ###FIN###
 ```
+
+```{r}
+session_info()
+```
+
