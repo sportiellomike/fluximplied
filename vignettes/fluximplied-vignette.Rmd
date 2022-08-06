@@ -24,9 +24,14 @@ install_github('sportiellomike/fluximplied@dev',build_vignettes=T)
 library(fluximplied)
 ```
 
-```{r}
+```{r,fig.width=7,fig.align='center'}
 # Let's use the exampleData included in this package
 head(exampleData)
+# as you can see, it has genes that are not related to metabolism, genes that are, and some genes that are that are also rate limiting steps. 
+
+# Let's also make an example set of data where none of the genes have a padj below 0.05
+exampleDatawithoutsignificantRLSs<-exampleData
+exampleDatawithoutsignificantRLSs$padj<-0.051
 ```
 
 ```{r,fig.width=7,fig.align='center'}
@@ -47,6 +52,40 @@ fluximplied(inputdat = inputdat,
             inputformat = inputformat,
             LFCcolname = LFCcolname,
             pcutoff = pcutoff)
+```
+
+
+```{r,fig.width=7,fig.align='center'}
+# And let's do the same thing but with our example dataset that doesn't have any significant Padj values.
+inputdat<-exampleDatawithoutsignificantRLSs
+inputformat='df'
+species="mmu"
+geneformat="SYMBOL"
+padjcolname='padj'
+LFCcolname= 'log2FoldChange'
+pcutoff=0.05
+
+# now actually run fluximplied (uncomment it if you want it to run)
+
+# fluximplied(inputdat = inputdat,
+#             geneformat=geneformat,
+#             species = species,
+#             padjcolname = padjcolname,
+#             inputformat = inputformat,
+#             LFCcolname = LFCcolname,
+#             pcutoff = pcutoff)
+```
+
+```{r,fig.width=7,fig.align='center'}
+# let's reset our parameters to the original ones including using our dataset with significatn Padj values.
+inputdat<-exampleData
+inputformat='df'
+species="mmu"
+geneformat="SYMBOL"
+padjcolname='padj'
+LFCcolname= 'log2FoldChange'
+pcutoff=0.05
+
 ```
 
 ```{r,fig.width=7,fig.align='center'}
