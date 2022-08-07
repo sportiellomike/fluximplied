@@ -9,4 +9,9 @@
 #'   \item{log2FoldChange}{Gene's LFC}
 #' }
 #' @source <https://www.github.com/mvuorre/exampleRPackage>
+library(Cairo)
+library(ggplot2)
+library(shiny)
+library(shinythemes)
+library(viridis)
 "exampleData"

@@ -10,6 +10,11 @@
 #'
 #' @examples specform(species='mmu',geneformat='symbol')
 specform <- function(species,geneformat) {
+library(Cairo)
+library(ggplot2)
+library(shiny)
+library(shinythemes)
+library(viridis)
   RLSdatabase<<-read.csv('https://raw.githubusercontent.com/sportiellomike/fluximplieddev/master/RLSdatabasev2.csv',stringsAsFactors = F,colClasses = c(kegg.pathway.id='character'))
   ifelse(species=='Mmu' || species=='MMU' || species=='mmu',
          ifelse(geneformat=='Symbol'||geneformat=='SYMBOL'||geneformat=='symbol', RLSgenes<-RLSdatabase$mouse.gene.symbol,

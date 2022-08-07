@@ -10,11 +10,14 @@
 #'
 #' @examples shinyfluximplied()
 shinyfluximplied=function(ui = ui, server= server){
+library(Cairo)
+library(ggplot2)
+library(shiny)
+library(shinythemes)
+library(viridis)
 #build shiny app
 if (interactive()) {
 # Define UI for application that draws a histogram
-library(shiny)
-  library(shinythemes)
   ui <- fluidPage(theme = shinytheme("slate"),
     # Application title
     titlePanel("fluximplied"),

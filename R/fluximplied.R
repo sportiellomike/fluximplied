@@ -21,15 +21,21 @@
 #' LFCcolname = 'log2FoldChange',
 #' pcutoff = 0.05)
 fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', inputformat='df',LFCcolname='Log2FoldChange',pcutoff=0.05) {
-  # load and install packages
-  list.of.packages <- c("viridis",
-                        "ggplot2",
-                        'shinythemes',
-                        'Cairo',
-                        'shiny')
-  new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-  if(length(new.packages)) install.packages(new.packages)
-  lapply(list.of.packages, require, character.only = TRUE)
+library(Cairo)
+library(ggplot2)
+library(shiny)
+library(shinythemes)
+library(viridis)
+
+  # # load and install packages
+  # list.of.packages <- c("viridis",
+  #                       "ggplot2",
+  #                       'shinythemes',
+  #                       'Cairo',
+  #                       'shiny')
+  # new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+  # if(length(new.packages)) install.packages(new.packages)
+  # lapply(list.of.packages, require, character.only = TRUE)
   
     #define df
   dflist<-c('df','DF','Df','dataframe','Dataframe','DataFrame','DATAFRAME','data.frame')

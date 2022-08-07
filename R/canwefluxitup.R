@@ -21,7 +21,11 @@
 canwefluxitup <- function(inputdat=inputdat,species=species,geneformat=geneformat,padjcolname=padjcolname, LFCcolname=LFCcolname,pcutoff=pcutoff) {
   # initiate the not in operator
 `%!in%` <- Negate(`%in%`) # First we have to define the 'not in' operator
-
+library(Cairo)
+library(ggplot2)
+library(shiny)
+library(shinythemes)
+library(viridis)
 # ensure that the correct class was supplied to each argument
 # confirm that input dat is actually a data frame or vector
 if(class(inputdat) %!in% c('data.frame','character')){
