@@ -6,7 +6,7 @@ Author: Mike Sportiello, MS; Adam Geber; Rohith Palli, MD/PhD
 Maintainer: Mike Sportiello <michael_sportiello@urmc.rochester.edu>
 Description: Fluximplied utilizes a manually curated rate limiting step database to 
     analyze DESeq2 results or a character vector of differentially expressed genes.
-License: MIT + file LICENSE
+License: CC BY 4.0
 Encoding: UTF-8
 LazyData: true
 Depends:
