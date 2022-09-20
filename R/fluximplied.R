@@ -27,16 +27,7 @@ library(shiny)
 library(shinythemes)
 library(viridis)
 
-  # # load and install packages
-  # list.of.packages <- c("viridis",
-  #                       "ggplot2",
-  #                       'shinythemes',
-  #                       'Cairo',
-  #                       'shiny')
-  # new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
-  # if(length(new.packages)) install.packages(new.packages)
-  # lapply(list.of.packages, require, character.only = TRUE)
-  
+ 
     #define df
   dflist<-c('df','DF','Df','dataframe','Dataframe','DataFrame','DATAFRAME','data.frame')
   # if(inputformat %in% dflist) {
@@ -95,7 +86,7 @@ library(viridis)
   #create an intersect so we can actually count them
   intersect<-intersect(inputdat,RLSgenes)
   lengthintersect<-length(intersect)
-  print1<<-ifelse(lengthintersect==0,
+  print1<<-ifelse(lengthintersect==0, # prepare the message to print to console that describes the result.
          (paste('There are no genes in your set that are in our rate limiting step database. Make sure you gave the correct species (Mmu or Hsa only) and geneformat (Symbol or ENTREZID only). If you are using the interactive GUI, you should be uploading a dataframe with a column of p values, a column called log2FoldChange, and genes should be in the first column. If you are not using the GUI, you can use the dataframe from a seurat or DESeq2 result with genes as rownames, or a character vector of genes. Sorry about that. We are as sad as you.')),
                {(paste0('Your gene set has --------> ',lengthintersect,' <-------- genes that have been identified as encoding enzymes involved as rate-limiting steps in the gene set you provided. If you are running this from Rstudio or the command line (not the interactive app), your RLS genes are saved as myRLSgenes and a dataframe of genes and corresponding pathways is saved as myRLStable.'))})
   #save the outputs so the user can hold onto them and look at them
@@ -106,13 +97,14 @@ library(viridis)
          {significancetable<-inputssubset
          significancetable$metabolicrxn <- myRLStable$`Pathway associated with gene`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
          significancetable$keggpathwayid <- myRLStable$`KEGG Pathway ID`[match(rownames(significancetable), myRLStable$`RLS genes in your set`)]
-         significancetable<<-significancetable
+         significancetable<<-significancetable # save the significance table so the user can look at it
          plottable<-significancetable
          plottable$genepath<-paste0(rownames(plottable),' (RLS of ',plottable$metabolicrxn,')')
-         if (!require(ggplot2)) {
+         if (!require(ggplot2)) { # make sure these packages are actually installed
            stop("ggplot2 is not installed. Install it from CRAN.")}
-         if (!require(viridis)) {
+         if (!require(viridis)) { # make sure these packages are actually installed
            stop("viridis is not installed. Install it from CRAN.")}
+          # actually make the plot for the user
          fluximpliedplot<<-ggplot(plottable, aes(x=reorder(genepath,log2FoldChange), y=log2FoldChange , label=log2FoldChange)) +
            geom_bar(stat='identity', aes(fill=padjadj), width=.5,position="dodge")  +
            scale_fill_viridis(end=.9) +
