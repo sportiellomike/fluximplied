@@ -7,32 +7,32 @@ tags:
   - metabolism
   - flux
 authors:
-  - name: Mike Sportiello
+  - name: Mike Sportiello MS
     orcid: 0000-0003-1690-8702
     equal-contrib: true
     affiliation: "1, 2" # (Multiple affiliations must be quoted)
   - name: Adam Geber
-    orcid: #
+    orcid: 0000-0003-3022-0525
     equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
     affiliation: "1, 2"
-  - name: Rohith Palli
-    orcid: #
+  - name: Rohith Palli MD/PhD
+    orcid: 0000-0001-7252-4266
     affiliation: 2
-  - name: A Karim Embong
-    orcid: #
+  - name: A Karim Embong MS
+    orcid: 0000-0002-7224-4640
     affiliation: 1
   - name: Nathan G. Laniewski
     orcid: #
     affiliation: 1
-  - name: Emma C. Reilly
+  - name: Emma C. Reilly PhD
     orcid: #
     affiliation: 3
   - name: Kris Lambert Emo
     orcid: #
     affiliation: 1
-  - name: David J. Topham
+  - name: David J. Topham MS/PhD
     corresponding: true
-    orcid: #
+    orcid: 0000-0002-9435-8673
     affiliation: 1
 
 affiliations:
