@@ -1,4 +1,8 @@
-# fluximplied
+# fluximplied 
+
+[![DOI](https://zenodo.org/badge/373266702.svg)](https://zenodo.org/badge/latestdoi/373266702)
+
+
 These R functions assist in the generation of hypotheses for flux analysis from transciptomic or metabalomic data. Instructions for installation and use of those functions are detailed below.
 # Authors, contributors, and more
 * Mike Sportiello MS, Adam Geber, Rohith Palli PhD, Aizan Embong MS, Nate Laniewski, Emma C Reilly PhD, Kris Lambert Emo, and Dave Topham PhD
