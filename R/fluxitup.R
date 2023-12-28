@@ -7,7 +7,5 @@
 #' @examples
 #' fluxitup()
 fluxitup<- function() {print(art)}
-art<-readLines("https://raw.githubusercontent.com/sportiellomike/fluximplieddev/master/what.txt",warn=F)
+art<-readLines("https://raw.githubusercontent.com/sportiellomike/fluximplieddev/master/code-packaged-dev/logo.txt",warn=F)
 dput(art)
-
-
