@@ -10,7 +10,7 @@
 library(shiny)
 library(shinythemes)
 library(devtools)
-library(fluximplied)
+# library(fluximplied)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(theme = shinytheme("slate"),
