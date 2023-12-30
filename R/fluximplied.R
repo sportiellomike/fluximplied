@@ -106,7 +106,7 @@ library(viridis)
            stop("viridis is not installed. Install it from CRAN.")}
           # actually make the plot for the user
          cat(plottable)
-         fluximpliedplot<<-ggplot(plottable, aes(x=genepath, y=plottable$log2FoldChange)) +
+         fluximpliedplot<<-ggplot(plottable, aes(x=genepath, y=LFCcolname)) +
            geom_col(aes(fill=padjadj), width=.5,position="dodge")  +
            scale_fill_viridis(end=.9) +
            labs(title= "Pathway analysis with 'fluximplied'",x='',y=bquote('Log'[2]('Fold Change')),fill=bquote('P'['adjadj'])) +
