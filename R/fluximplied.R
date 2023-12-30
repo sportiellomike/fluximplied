@@ -20,7 +20,7 @@
 #' inputformat = 'df',
 #' LFCcolname = 'log2FoldChange',
 #' pcutoff = 0.05)
-fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', inputformat='df',LFCcolname,pcutoff=0.05) {
+fluximplied <- function(inputdat,species='mmu',geneformat='SYMBOL',padjcolname='adj_pvalue', inputformat='df',LFCcolname='log2FoldChange',pcutoff=0.05) {
 library(Cairo)
 library(ggplot2)
 library(shiny)
