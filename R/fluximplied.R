@@ -51,7 +51,7 @@ library(viridis)
   
   # make sure their LFC column is actually in the vector they supplied
   if(inputformat %in% dflist & LFCcolname %!in% colnames(inputdat)) {
-  stop("You told us your LFCcolname was something that isn't actually in the data frame your provided. Please correct which column name is your padj column.")
+  stop("You told us your LFCcolname was something that isn't actually in the data frame your provided. Please rename your LFC column in your input dat to log2FoldChange.")
     }
   
   # function to see if there are any rate limiting steps in gene list
