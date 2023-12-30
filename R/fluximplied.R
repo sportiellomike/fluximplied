@@ -105,6 +105,7 @@ library(viridis)
          if (!require(viridis)) { # make sure these packages are actually installed
            stop("viridis is not installed. Install it from CRAN.")}
           # actually make the plot for the user
+         print(plottable)
          fluximpliedplot<<-ggplot(plottable, aes(x=genepath, y=plottable$log2FoldChange)) +
            geom_col(aes(fill=padjadj), width=.5,position="dodge")  +
            scale_fill_viridis(end=.9) +
