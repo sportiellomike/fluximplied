@@ -10,7 +10,7 @@ fluximplied(
   geneformat = "SYMBOL",
   padjcolname = "adj_pvalue",
   inputformat = "df",
-  LFCcolname = "Log2FoldChange",
+  LFCcolname = "log2FoldChange",
   pcutoff = 0.05
 )
 }
